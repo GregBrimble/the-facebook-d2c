@@ -1,0 +1,2 @@
+COOKIE_SIGNING_KEY=super-secret-value # replace this in prod
+ANOTHER_ENTROPIC_VALUE=h4cks #yea

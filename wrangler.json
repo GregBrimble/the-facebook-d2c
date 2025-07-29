@@ -1,0 +1,18 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "the-facebook-d2c",
+	"main": "./worker/index.ts",
+	"compatibility_date": "2025-04-01",
+	"compatibility_flags": ["nodejs_compat"],
+	"secrets_store_secrets": [
+		{
+			"binding": "OPENAI_API_KEY",
+			"secret_name": "a-new-secret",
+			"store_id": "912117ac44994b87b5fcc6252189f5cb"
+		}
+	],
+	"vars": {
+		"API_HOST": "https://example.com/",
+		"ANOTHER_VAR": "something-here"
+	}
+}

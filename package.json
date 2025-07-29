@@ -1,0 +1,48 @@
+{
+	"name": "the-facebook-d2c",
+	"description": "A brand new social network!",
+	"cloudflare": {
+		"bindings": {
+			"UGC": {
+				"description": "This R2 bucket will be used to store user-generated content such as profile pictures. Read more [here](https://github.com/GregBrimble/the-facebook#r2-bucket)."
+			},
+			"OPENAI_API_KEY": {
+				"description": "Grab an API key from [OpenAI](https://openai.com/):\n![Generate an API token in OpenAI](https://github.com/user-attachments/assets/e58280fc-5dda-4213-b512-b00cd4ff73a2)"
+			},
+			"COOKIE_SIGNING_KEY": {
+				"description": "Generate a random string of 32 hex characters. This will be used to sign cookies. You can use [this tool](https://www.random.org/strings/) to generate a random string."
+			},
+			"ANOTHER_ENTROPIC_VALUE": {
+				"description": "Lava lamps work well."
+			}
+		}
+	},
+	"dependencies": {
+		"next": "14.2.26",
+		"react": "18.3.1",
+		"react-dom": "18.3.1"
+	},
+	"devDependencies": {
+		"@opennextjs/cloudflare": "1.0.0-beta.3",
+		"@types/node": "^22.15.19",
+		"@types/react": "18.3.12",
+		"@types/react-dom": "18.3.1",
+		"eslint": "8.56.0",
+		"eslint-config-next": "14.2.5",
+		"postcss": "8.5.3",
+		"tailwindcss": "3.4.17",
+		"typescript": "5.8.3",
+		"wrangler": "^4.20.0"
+	},
+	"scripts": {
+		"build": "NEXT_PRIVATE_STANDALONE=true next build",
+		"cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts",
+		"check": "npm run build && tsc && wrangler deploy --dry-run",
+		"deploy": "wrangler deploy",
+		"dev": "next dev",
+		"lint": "next lint",
+		"postbuild": "opennextjs-cloudflare build -s",
+		"preview": "npm run build && wrangler dev",
+		"start": "next start"
+	}
+}
